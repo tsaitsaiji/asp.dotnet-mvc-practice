@@ -1,0 +1,48 @@
+﻿@model AppointmentSystem.Models.Reservation
+<h2>修改 預約</h2>
+<br />
+
+<form method="post" action="/Home/EditReservation ">
+    <div class="form-group row">
+        <label for="inputCharName" class="col-sm-2">ID</label>
+        <div class="col-sm-10">
+            <input type="text" id="inputID" name="ID" class="form-control" value="@Model.ID" oninput="convertToChar(this)" readonly />
+            <script>
+                function convertToChar(input) {
+                    // 獲取輸入的數字值
+                    var numericValue = parseInt(input.value);
+
+                    // 檢查是否為有效數字
+                    if (!isNaN(numericValue)) {
+                        // 將數字轉換為字符
+                        var charValue = String.fromCharCode(numericValue);
+
+                        // 更新輸入框的值
+                        input.value = charValue;
+                    }
+                }
+            </script>
+
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputCharName" class="col-sm-2">姓名</label>
+        <div class="col-sm-10">
+            <input type="text" id="inputName" name="NAME" class="form-control" value="@Model.NAME" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputCardName" class="col-sm-2">電話</label>
+        <div class="col-sm-10">
+            <input type="text" id="inputPhone" name="PHONE" class="form-control" value="@Model.PHONE" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputCardLevel" class="col-sm-2">日期 (ex : 2020-02-05 12:30)</label>
+        <div class="col-sm-10">
+            <input type="text" id="inputDate" name="DATE" class="form-control" value="@Model.DATE" />
+        </div>
+    </div>
+    <input class="btn btn-default" type="submit" value="儲存" />
+</form>
+
